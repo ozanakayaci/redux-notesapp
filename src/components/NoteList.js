@@ -10,98 +10,108 @@ function NoteList() {
   return (
     <Flex justifyContent="center" flexWrap="wrap">
       <Box>
-        {items.map((item) => {
-          if (item.color === "#F06292") {
-            return (
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                maxW={300}
-                minW={300}
-                m="2"
-                p="1"
-                bg={item.color}
-              >
-                <Text fontSize="20px">{item.title}</Text>
-              </Box>
-            );
-          }
+        {items.map((item, i) => {
+          return (
+            <Box key={i}>
+              {item.color === "#F06292" && (
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  maxW={320}
+                  minW={320}
+                  m="1"
+                  p="1"
+                  bg={item.color}
+                >
+                  <Text fontSize="20px">{item.title}</Text>
+                </Box>
+              )}
+            </Box>
+          );
         })}
       </Box>
       <Box>
-        {items.map((item) => {
-          if (item.color === "#BA68C8") {
-            return (
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                maxW={300}
-                minW={300}
-                m="2"
-                p="1"
-                bg={item.color}
-              >
-                <Text fontSize="20px">{item.title}</Text>
-              </Box>
-            );
-          }
+        {items.map((item, i) => {
+          return (
+            <Box key={i}>
+              {item.color === "#BA68C8" && (
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  maxW={320}
+                  minW={320}
+                  m="1"
+                  p="1"
+                  bg={item.color}
+                >
+                  <Text fontSize="20px">{item.title}</Text>
+                </Box>
+              )}
+            </Box>
+          );
         })}
       </Box>
       <Box>
-        {items.map((item) => {
-          if (item.color === "#FFD54F") {
-            return (
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                maxW={300}
-                minW={300}
-                m="2"
-                p="1"
-                bg={item.color}
-              >
-                <Text fontSize="20px">{item.title}</Text>
-              </Box>
-            );
-          }
+        {items.map((item, i) => {
+          return (
+            <Box key={i}>
+              {item.color === "#FFD54F" && (
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  maxW={320}
+                  minW={320}
+                  m="1"
+                  p="1"
+                  bg={item.color}
+                >
+                  <Text fontSize="20px">{item.title}</Text>
+                </Box>
+              )}
+            </Box>
+          );
         })}
       </Box>
       <Box>
-        {items.map((item) => {
-          if (item.color === "#4FC3F9") {
-            return (
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                maxW={300}
-                minW={300}
-                m="2"
-                p="1"
-                bg={item.color}
-              >
-                <Text fontSize="20px">{item.title}</Text>
-              </Box>
-            );
-          }
+        {items.map((item, i) => {
+          return (
+            <Box key={i}>
+              {item.color === "#4FC3F9" && (
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  maxW={320}
+                  minW={320}
+                  m="1"
+                  p="1"
+                  bg={item.color}
+                >
+                  <Text fontSize="20px">{item.title}</Text>
+                </Box>
+              )}
+            </Box>
+          );
         })}
       </Box>
       <Box>
-        {items.map((item) => {
-          if (item.color === "#AED581") {
-            return (
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                maxW={300}
-                minW={300}
-                m="2"
-                p="1"
-                bg={item.color}
-              >
-                <Text fontSize="20px">{item.title}</Text>
-              </Box>
-            );
-          }
+        {items.map((item, i) => {
+          return (
+            <Box key={i}>
+              {item.color === "#AED581" && (
+                <Box
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  maxW={320}
+                  minW={320}
+                  m="1"
+                  p="1"
+                  bg={item.color}
+                >
+                  <Text fontSize="20px">{item.title}</Text>
+                </Box>
+              )}
+            </Box>
+          );
         })}
       </Box>
     </Flex>

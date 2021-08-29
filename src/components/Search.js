@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Input, Box } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 
 function Search() {
   return (

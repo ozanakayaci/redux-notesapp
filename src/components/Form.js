@@ -3,27 +3,38 @@ import { useSelector } from "react-redux";
 
 import { Textarea, Box, Button } from "@chakra-ui/react";
 
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { addNewNote, selectColor } from "../redux/notes/notesSlice";
+
 function Form() {
-  let [value, setValue] = useState();
-  let [selectedColor, setSelectedColor] = useState(
-    localStorage.getItem("color") === null
-      ? "#F06292"
-      : localStorage.getItem("color")
-  );
+  let [title, setTitle] = useState();
+
+  const colors = useSelector((state) => state.notes.colors);
+  const selectedColor = useSelector((state) => state.notes.selectedColor);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     localStorage.setItem("color", selectedColor);
   }, [selectedColor]);
 
   let handleInputChange = (e) => {
-    setValue(e.target.value);
+    setTitle(e.target.value);
   };
 
-  const colors = useSelector((state) => state.notes.colors);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(addNewNote({ id: nanoid(3), title, color: selectedColor }));
+
+    setTitle("");
+  };
   return (
-    <Box m="10" display="flex" alignItems="center" flexDirection="column">
+    <form onSubmit={handleSubmit} className="form">
       <Textarea
         colorScheme="red"
-        value={value}
+        value={title}
         onChange={handleInputChange}
         onSubmit={() => console.log("baaşarılı")}
         size="md"
@@ -33,22 +44,23 @@ function Form() {
 
       <Box mt="2" display="flex" maxW={1000}>
         <Box display="flex">
-          {colors.map((item) => {
+          {colors.map((item, i) => {
             return (
               <Box
+                key={i}
                 mr="2"
                 className={selectedColor === item ? "palet selected" : "palet"}
                 bg={item}
-                onClick={() => setSelectedColor(item)}
+                onClick={() => dispatch(selectColor(item))}
               ></Box>
             );
           })}
         </Box>
-        <Button colorScheme="teal" variant="outline">
+        <Button type="submit" colorScheme="teal" variant="outline">
           Add
         </Button>
       </Box>
-    </Box>
+    </form>
   );
 }
 
