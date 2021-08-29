@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { Textarea, Box, Button, GridItem } from "@chakra-ui/react";
+import { Textarea, Box, Button } from "@chakra-ui/react";
 
 function Form() {
   let [value, setValue] = useState();
-  let [selectedColor, setSelectedColor] = useState("#BA68C8");
+  let [selectedColor, setSelectedColor] = useState(
+    "#F06292",
+    localStorage.getItem("color")
+  );
+  useEffect(() => {
+    localStorage.setItem("color", selectedColor);
+  }, [selectedColor]);
 
   let handleInputChange = (e) => {
     setValue(e.target.value);
