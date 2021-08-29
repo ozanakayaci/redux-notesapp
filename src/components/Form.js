@@ -6,8 +6,9 @@ import { Textarea, Box, Button } from "@chakra-ui/react";
 function Form() {
   let [value, setValue] = useState();
   let [selectedColor, setSelectedColor] = useState(
-    "#F06292",
-    localStorage.getItem("color")
+    localStorage.getItem("color") === null
+      ? "#F06292"
+      : localStorage.getItem("color")
   );
   useEffect(() => {
     localStorage.setItem("color", selectedColor);
