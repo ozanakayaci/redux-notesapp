@@ -15,7 +15,7 @@ function Search() {
   return (
     <div>
       <Input
-        maxW={400}
+        maxW={320}
         type="text"
         placeholder="Search"
         onChange={handleChange}
