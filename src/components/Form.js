@@ -26,14 +26,14 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(addNewNote({ id: nanoid(3), title, color: selectedColor }));
+    title !== "" &&
+      dispatch(addNewNote({ id: nanoid(3), title, color: selectedColor }));
 
     setTitle("");
   };
   return (
     <form onSubmit={handleSubmit} className="form">
       <Textarea
-        colorScheme="red"
         value={title}
         onChange={handleInputChange}
         onSubmit={() => console.log("baaşarılı")}

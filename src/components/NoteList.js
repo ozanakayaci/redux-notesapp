@@ -1,16 +1,25 @@
-import React from "react";
-
 import { useSelector } from "react-redux";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
 
 function NoteList() {
+  const filterText = useSelector((state) => state.notes.filterText);
+
   const items = useSelector((state) => state.notes.items);
+
+  const filteredNotes = items.filter((item) => {
+    return Object.keys(item).some(
+      (prop) =>
+        prop === "title" &&
+        item[prop] !== undefined &&
+        item[prop].toString().toLowerCase().includes(filterText.toLowerCase())
+    );
+  });
 
   return (
     <Flex justifyContent="center" flexWrap="wrap">
       <Box>
-        {items.map((item, i) => {
+        {filteredNotes.map((item, i) => {
           return (
             <Box key={i}>
               {item.color === "#F06292" && (
@@ -31,7 +40,7 @@ function NoteList() {
         })}
       </Box>
       <Box>
-        {items.map((item, i) => {
+        {filteredNotes.map((item, i) => {
           return (
             <Box key={i}>
               {item.color === "#BA68C8" && (
@@ -52,7 +61,7 @@ function NoteList() {
         })}
       </Box>
       <Box>
-        {items.map((item, i) => {
+        {filteredNotes.map((item, i) => {
           return (
             <Box key={i}>
               {item.color === "#FFD54F" && (
@@ -73,7 +82,7 @@ function NoteList() {
         })}
       </Box>
       <Box>
-        {items.map((item, i) => {
+        {filteredNotes.map((item, i) => {
           return (
             <Box key={i}>
               {item.color === "#4FC3F9" && (
@@ -94,7 +103,7 @@ function NoteList() {
         })}
       </Box>
       <Box>
-        {items.map((item, i) => {
+        {filteredNotes.map((item, i) => {
           return (
             <Box key={i}>
               {item.color === "#AED581" && (

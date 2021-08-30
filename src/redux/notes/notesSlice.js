@@ -13,6 +13,7 @@ export const notesSlice = createSlice({
     ],
     colors: ["#F06292", "#BA68C8", "#FFD54F", "#4FC3F9", "#AED581"],
     selectedColor: localStorage.getItem("color") || "#F06292",
+    filterText: "",
   },
   reducers: {
     addNewNote: (state, action) => {
@@ -21,8 +22,11 @@ export const notesSlice = createSlice({
     selectColor: (state, action) => {
       state.selectedColor = action.payload;
     },
+    filterNotes: (state, action) => {
+      state.filterText = action.payload;
+    },
   },
 });
 
-export const { addNewNote, selectColor } = notesSlice.actions;
+export const { addNewNote, selectColor, filterNotes } = notesSlice.actions;
 export default notesSlice.reducer;
