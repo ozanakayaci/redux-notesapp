@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    items: [
+    items: JSON.parse(localStorage.getItem("notes")) || [
       {
         id: "1",
         title:
@@ -42,6 +42,7 @@ export const notesSlice = createSlice({
   reducers: {
     addNewNote: (state, action) => {
       state.items.push(action.payload);
+      localStorage.setItem("notes", JSON.stringify(state.items));
     },
     selectColor: (state, action) => {
       state.selectedColor = action.payload;
