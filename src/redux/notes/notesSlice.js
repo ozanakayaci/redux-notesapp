@@ -50,8 +50,15 @@ export const notesSlice = createSlice({
     filterNotes: (state, action) => {
       state.filterText = action.payload;
     },
+    destroy: (state, action) => {
+      const id = action.payload;
+      const filtered = state.items.filter((item) => item.id !== id);
+      state.items = filtered;
+      localStorage.setItem("notes", JSON.stringify(filtered));
+    },
   },
 });
 
-export const { addNewNote, selectColor, filterNotes } = notesSlice.actions;
+export const { addNewNote, selectColor, filterNotes, destroy } =
+  notesSlice.actions;
 export default notesSlice.reducer;

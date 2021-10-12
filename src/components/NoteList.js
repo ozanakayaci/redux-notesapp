@@ -1,11 +1,18 @@
 import { useSelector } from "react-redux";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { useEffect } from "react";
+
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
+
+import { useDispatch } from "react-redux";
+import { destroy } from "../redux/notes/notesSlice";
 
 function NoteList() {
   const filterText = useSelector((state) => state.notes.filterText);
 
   const items = useSelector((state) => state.notes.items);
+
+  const dispatch = useDispatch();
 
   const filteredNotes = items.filter((item) => {
     return Object.keys(item).some(
@@ -15,6 +22,10 @@ function NoteList() {
         item[prop].toString().toLowerCase().includes(filterText.toLowerCase())
     );
   });
+
+  useEffect(() => {
+    console.log("sa");
+  }, [items]);
 
   return (
     <Flex justifyContent="center" flexWrap="wrap">
@@ -31,8 +42,19 @@ function NoteList() {
                   m="1"
                   p="1"
                   bg={item.color}
+                  display="flex"
+                  justifyContent="space-between"
                 >
                   <Text fontSize="20px">{item.title}</Text>
+                  <Button
+                    _hover={{ bg: "#ff0000" }}
+                    colorScheme="F06292"
+                    mt="2px"
+                    size="xs"
+                    onClick={() => dispatch(destroy(item.id))}
+                  >
+                    X
+                  </Button>
                 </Box>
               )}
             </Box>
@@ -52,8 +74,19 @@ function NoteList() {
                   m="1"
                   p="1"
                   bg={item.color}
+                  display="flex"
+                  justifyContent="space-between"
                 >
                   <Text fontSize="20px">{item.title}</Text>
+                  <Button
+                    _hover={{ bg: "#ff0000" }}
+                    colorScheme="BA68C8"
+                    mt="2px"
+                    size="xs"
+                    onClick={() => dispatch(destroy(item.id))}
+                  >
+                    X
+                  </Button>
                 </Box>
               )}
             </Box>
@@ -73,8 +106,19 @@ function NoteList() {
                   m="1"
                   p="1"
                   bg={item.color}
+                  display="flex"
+                  justifyContent="space-between"
                 >
                   <Text fontSize="20px">{item.title}</Text>
+                  <Button
+                    _hover={{ bg: "#ff0000" }}
+                    colorScheme="FFD54F"
+                    mt="2px"
+                    size="xs"
+                    onClick={() => dispatch(destroy(item.id))}
+                  >
+                    X
+                  </Button>
                 </Box>
               )}
             </Box>
@@ -94,8 +138,19 @@ function NoteList() {
                   m="1"
                   p="1"
                   bg={item.color}
+                  display="flex"
+                  justifyContent="space-between"
                 >
                   <Text fontSize="20px">{item.title}</Text>
+                  <Button
+                    _hover={{ bg: "#ff0000" }}
+                    colorScheme="4FC3F9"
+                    mt="2px"
+                    size="xs"
+                    onClick={() => dispatch(destroy(item.id))}
+                  >
+                    X
+                  </Button>
                 </Box>
               )}
             </Box>
@@ -115,8 +170,19 @@ function NoteList() {
                   m="1"
                   p="1"
                   bg={item.color}
+                  display="flex"
+                  justifyContent="space-between"
                 >
                   <Text fontSize="20px">{item.title}</Text>
+                  <Button
+                    colorScheme="AED581"
+                    _hover={{ bg: "#ff0000" }}
+                    mt="2px"
+                    size="xs"
+                    onClick={() => dispatch(destroy(item.id))}
+                  >
+                    X
+                  </Button>
                 </Box>
               )}
             </Box>
