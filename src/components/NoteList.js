@@ -32,9 +32,10 @@ function NoteList() {
       <Box>
         {filteredNotes.map((item, i) => {
           return (
-            <Box key={i}>
+            <>
               {item.color === "#F06292" && (
                 <Box
+                  key={i}
                   borderWidth="1px"
                   borderRadius="lg"
                   maxW={320}
@@ -57,16 +58,17 @@ function NoteList() {
                   </Button>
                 </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Box>
       <Box>
         {filteredNotes.map((item, i) => {
           return (
-            <Box key={i}>
+            <>
               {item.color === "#BA68C8" && (
                 <Box
+                  key={i}
                   borderWidth="1px"
                   borderRadius="lg"
                   maxW={320}
@@ -89,16 +91,17 @@ function NoteList() {
                   </Button>
                 </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Box>
       <Box>
         {filteredNotes.map((item, i) => {
           return (
-            <Box key={i}>
+            <>
               {item.color === "#FFD54F" && (
                 <Box
+                  key={i}
                   borderWidth="1px"
                   borderRadius="lg"
                   maxW={320}
@@ -121,16 +124,17 @@ function NoteList() {
                   </Button>
                 </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Box>
       <Box>
         {filteredNotes.map((item, i) => {
           return (
-            <Box key={i}>
+            <>
               {item.color === "#4FC3F9" && (
                 <Box
+                  key={i}
                   borderWidth="1px"
                   borderRadius="lg"
                   maxW={320}
@@ -153,16 +157,17 @@ function NoteList() {
                   </Button>
                 </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Box>
       <Box>
         {filteredNotes.map((item, i) => {
           return (
-            <Box key={i}>
+            <>
               {item.color === "#AED581" && (
                 <Box
+                  key={i}
                   borderWidth="1px"
                   borderRadius="lg"
                   maxW={320}
@@ -185,7 +190,7 @@ function NoteList() {
                   </Button>
                 </Box>
               )}
-            </Box>
+            </>
           );
         })}
       </Box>
