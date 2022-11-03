@@ -48,7 +48,7 @@ function NoteList() {
                 >
                   <Text fontSize="20px">{item.title}</Text>
                   <Button
-                    _hover={{ bg: "#ff0000" }}
+                    _hover={{ bg: "#f1f1f1", color: "#F06292" }}
                     colorScheme="F06292"
                     mt="2px"
                     size="xs"
@@ -81,7 +81,7 @@ function NoteList() {
                 >
                   <Text fontSize="20px">{item.title}</Text>
                   <Button
-                    _hover={{ bg: "#ff0000" }}
+                    _hover={{ bg: "#f1f1f1", color: "#BA68C8" }}
                     colorScheme="BA68C8"
                     mt="2px"
                     size="xs"
@@ -114,7 +114,7 @@ function NoteList() {
                 >
                   <Text fontSize="20px">{item.title}</Text>
                   <Button
-                    _hover={{ bg: "#ff0000" }}
+                    _hover={{ bg: "#f1f1f1", color: "#FFD54F" }}
                     colorScheme="FFD54F"
                     mt="2px"
                     size="xs"
@@ -147,7 +147,7 @@ function NoteList() {
                 >
                   <Text fontSize="20px">{item.title}</Text>
                   <Button
-                    _hover={{ bg: "#ff0000" }}
+                    _hover={{ bg: "#f1f1f1", color: "#4FC3F9" }}
                     colorScheme="4FC3F9"
                     mt="2px"
                     size="xs"
@@ -181,7 +181,7 @@ function NoteList() {
                   <Text fontSize="20px">{item.title}</Text>
                   <Button
                     colorScheme="AED581"
-                    _hover={{ bg: "#ff0000" }}
+                    _hover={{ bg: "#f1f1f1", color: "#AED581" }}
                     mt="2px"
                     size="xs"
                     onClick={() => dispatch(destroy(item.id))}

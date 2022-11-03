@@ -42,7 +42,7 @@ function Form() {
         placeholder="Enter your note here..."
       />
 
-      <Box mt="2" display="flex" maxW={1000}>
+      <Box mt="2" display="flex" alignItems="center" maxW={1000}>
         <Box display="flex">
           {colors.map((item, i) => {
             return (
@@ -56,9 +56,13 @@ function Form() {
             );
           })}
         </Box>
-        <Button type="submit" colorScheme="teal" variant="outline">
-          Add
-        </Button>
+        <button type="submit" colorScheme="teal" variant="outline">
+          <lord-icon
+            src="https://cdn.lordicon.com/zgogqkqu.json"
+            trigger="click"
+            style={{ width: "50px", height: "50px", display: "flex" }}
+          ></lord-icon>
+        </button>
       </Box>
     </form>
   );
