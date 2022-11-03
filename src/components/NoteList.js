@@ -42,14 +42,15 @@ function NoteList() {
                       borderWidth="1px"
                       borderRadius="lg"
                       maxW={320}
-                      minW={320}
                       m="1"
                       p="1"
                       bg={item.color}
                       display="flex"
                       justifyContent="space-between"
                     >
-                      <Text fontSize="20px">{item.title}</Text>
+                      <Text fontSize="20px" p="1" overflow="auto">
+                        {item.title}
+                      </Text>
                       <Button
                         _hover={{ bg: "#f1f1f1", color: colorCode }}
                         colorScheme={colorCode.slice(1, 6)}
