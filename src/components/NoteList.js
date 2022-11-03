@@ -9,6 +9,7 @@ import { destroy } from "../redux/notes/notesSlice";
 
 function NoteList() {
   const filterText = useSelector((state) => state.notes.filterText);
+  const colorCodes = useSelector((state) => state.notes.colors);
 
   const items = useSelector((state) => state.notes.items);
 
@@ -29,171 +30,43 @@ function NoteList() {
 
   return (
     <Flex justifyContent="center" flexWrap="wrap">
-      <Box>
-        {filteredNotes.map((item, i) => {
-          return (
-            <>
-              {item.color === "#F06292" && (
-                <Box
-                  key={i}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  maxW={320}
-                  minW={320}
-                  m="1"
-                  p="1"
-                  bg={item.color}
-                  display="flex"
-                  justifyContent="space-between"
-                >
-                  <Text fontSize="20px">{item.title}</Text>
-                  <Button
-                    _hover={{ bg: "#f1f1f1", color: "#F06292" }}
-                    colorScheme="F06292"
-                    mt="2px"
-                    size="xs"
-                    onClick={() => dispatch(destroy(item.id))}
-                  >
-                    X
-                  </Button>
-                </Box>
-              )}
-            </>
-          );
-        })}
-      </Box>
-      <Box>
-        {filteredNotes.map((item, i) => {
-          return (
-            <>
-              {item.color === "#BA68C8" && (
-                <Box
-                  key={i}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  maxW={320}
-                  minW={320}
-                  m="1"
-                  p="1"
-                  bg={item.color}
-                  display="flex"
-                  justifyContent="space-between"
-                >
-                  <Text fontSize="20px">{item.title}</Text>
-                  <Button
-                    _hover={{ bg: "#f1f1f1", color: "#BA68C8" }}
-                    colorScheme="BA68C8"
-                    mt="2px"
-                    size="xs"
-                    onClick={() => dispatch(destroy(item.id))}
-                  >
-                    X
-                  </Button>
-                </Box>
-              )}
-            </>
-          );
-        })}
-      </Box>
-      <Box>
-        {filteredNotes.map((item, i) => {
-          return (
-            <>
-              {item.color === "#FFD54F" && (
-                <Box
-                  key={i}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  maxW={320}
-                  minW={320}
-                  m="1"
-                  p="1"
-                  bg={item.color}
-                  display="flex"
-                  justifyContent="space-between"
-                >
-                  <Text fontSize="20px">{item.title}</Text>
-                  <Button
-                    _hover={{ bg: "#f1f1f1", color: "#FFD54F" }}
-                    colorScheme="FFD54F"
-                    mt="2px"
-                    size="xs"
-                    onClick={() => dispatch(destroy(item.id))}
-                  >
-                    X
-                  </Button>
-                </Box>
-              )}
-            </>
-          );
-        })}
-      </Box>
-      <Box>
-        {filteredNotes.map((item, i) => {
-          return (
-            <>
-              {item.color === "#4FC3F9" && (
-                <Box
-                  key={i}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  maxW={320}
-                  minW={320}
-                  m="1"
-                  p="1"
-                  bg={item.color}
-                  display="flex"
-                  justifyContent="space-between"
-                >
-                  <Text fontSize="20px">{item.title}</Text>
-                  <Button
-                    _hover={{ bg: "#f1f1f1", color: "#4FC3F9" }}
-                    colorScheme="4FC3F9"
-                    mt="2px"
-                    size="xs"
-                    onClick={() => dispatch(destroy(item.id))}
-                  >
-                    X
-                  </Button>
-                </Box>
-              )}
-            </>
-          );
-        })}
-      </Box>
-      <Box>
-        {filteredNotes.map((item, i) => {
-          return (
-            <>
-              {item.color === "#AED581" && (
-                <Box
-                  key={i}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  maxW={320}
-                  minW={320}
-                  m="1"
-                  p="1"
-                  bg={item.color}
-                  display="flex"
-                  justifyContent="space-between"
-                >
-                  <Text fontSize="20px">{item.title}</Text>
-                  <Button
-                    colorScheme="AED581"
-                    _hover={{ bg: "#f1f1f1", color: "#AED581" }}
-                    mt="2px"
-                    size="xs"
-                    onClick={() => dispatch(destroy(item.id))}
-                  >
-                    X
-                  </Button>
-                </Box>
-              )}
-            </>
-          );
-        })}
-      </Box>
+      {colorCodes.map((colorCode, index) => {
+        return (
+          <Box key={index}>
+            {filteredNotes.map((item, i) => {
+              return (
+                <>
+                  {item.color === colorCode && (
+                    <Box
+                      key={i}
+                      borderWidth="1px"
+                      borderRadius="lg"
+                      maxW={320}
+                      minW={320}
+                      m="1"
+                      p="1"
+                      bg={item.color}
+                      display="flex"
+                      justifyContent="space-between"
+                    >
+                      <Text fontSize="20px">{item.title}</Text>
+                      <Button
+                        _hover={{ bg: "#f1f1f1", color: colorCode }}
+                        colorScheme={colorCode.slice(1, 6)}
+                        mt="2px"
+                        size="xs"
+                        onClick={() => dispatch(destroy(item.id))}
+                      >
+                        X
+                      </Button>
+                    </Box>
+                  )}
+                </>
+              );
+            })}
+          </Box>
+        );
+      })}
     </Flex>
   );
 }
