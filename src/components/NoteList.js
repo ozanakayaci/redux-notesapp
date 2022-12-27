@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 
-import { useEffect } from "react";
-
 import { Box, Flex, Text, Button } from "@chakra-ui/react";
 
 import { useDispatch } from "react-redux";
@@ -23,10 +21,6 @@ function NoteList() {
         item[prop].toString().toLowerCase().includes(filterText.toLowerCase())
     );
   });
-
-  useEffect(() => {
-    console.log("sa");
-  }, [items]);
 
   return (
     <Flex justifyContent="center" flexWrap="wrap">

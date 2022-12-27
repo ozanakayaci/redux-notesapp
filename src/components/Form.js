@@ -36,7 +36,6 @@ function Form() {
       <Textarea
         value={title}
         onChange={handleInputChange}
-        onSubmit={() => console.log("baaşarılı")}
         size="md"
         maxW={1000}
         placeholder="Enter your note here..."
